@@ -3,7 +3,7 @@
     
         <div class="d-flex" :class="[darkmode ? 'darkmode' : '']">
             <div class="col-8">
-                <DashboardChart></DashboardChart>
+                <!-- <DashboardChart></DashboardChart> -->
 
             </div>
             
@@ -41,7 +41,7 @@ export default{
     data(){
         return{
             data : sourceData,
-            darkmode: sourceData.darkMode
+            darkmode : localStorage.getItem("theme")            
         }
     },
     components:{
@@ -54,14 +54,19 @@ export default{
     .darkmode, .darkmode > *{
         background-color: #1f1f1f!important;
      }
-    
-    .balance , .balance > * ,.income, .income > * , .expenses , .expenses > * , .creadit , .creadit > *{
+
+     .darkmode > div > .balance,.darkmode > div > .balance > h4  {
         background-color: #1f1f1f;
         color: #e8e8e8;
-    }
-    .card_info{
+     }
+     .darkmode > div > .card_info, .darkmode > div > .card_info > div > h6{
         background-color: #1f1f1f;
         color: #e8e8e8;
-        font-weight: bold;
-    }
+        margin: 0;
+     }
+    /* .balance , .balance > * ,.income, .income > * , .expenses , .expenses > * , .creadit , .creadit > *{
+        background-color: #1f1f1f;
+        color: #e8e8e8;
+    } */
+
 </style>

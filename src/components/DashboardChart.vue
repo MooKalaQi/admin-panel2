@@ -5,9 +5,9 @@
 
 </template>
 
-<script>
-    export default {
-        name:"DashboardChart",
-    }
+<script setup>
+let myChart = document.getElementById("chart");
 
+
+new Chart 
 </script>

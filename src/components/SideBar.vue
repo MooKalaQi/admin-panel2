@@ -20,15 +20,16 @@ export default {
   data() {
     return {
       data: sourceData.sidemenu,
-      darkmode: sourceData.darkMode
+      
+      darkmode:sourceData.darkMode
     };
   },
   methods:{
-   theme(){
-      this.darkmode = localStorage.getItem("theme")
+   // theme(){
+   //    this.darkmode = localStorage.getItem("theme")
       
-      return this.darkmode;
-   }
+   //    return this.darkmode;
+   // }
 
   }
 };

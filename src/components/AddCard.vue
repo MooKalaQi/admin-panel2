@@ -58,6 +58,7 @@
           (this.saving = false);
       },
     },
+    emits:['add-card']
   };
   </script>
   <style>

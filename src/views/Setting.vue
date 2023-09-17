@@ -12,7 +12,7 @@ import sourceData from '../data.json';
 export default {
   data() {
     return {
-      darkmode: sourceData.darkMode,
+      darkmode:localStorage.getItem("theme")
     };
   },
   components: {
@@ -22,8 +22,13 @@ export default {
     ChangeTheme() {
       this.darkmode = !this.darkmode;
       console.log(this.darkmode);
+      localStorage.setItem("theme" , JSON.stringify(this.darkmode))
+      return this.darkmode;
+
     },
   },
+
+
 };
 </script>
 <style scoped>

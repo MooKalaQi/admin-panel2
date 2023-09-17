@@ -7,7 +7,7 @@
     <div>
       <div class="search_bar">
         <form>
-          <label for="search"
+          <label for="search" class="m-0"
             ><i class="fa-solid fa-magnifying-glass"></i
           ></label>
           <input type="text" />
@@ -24,7 +24,7 @@ export default {
     },
     data(){
         return{
-            darkmode : sourceData.darkMode
+          darkmode:sourceData.darkMode
         }
     }
 }
@@ -37,6 +37,9 @@ export default {
     height: 3rem;
 }
 form{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
     height: 100%;
     background-color:rgb(238, 238, 238) ;
 }

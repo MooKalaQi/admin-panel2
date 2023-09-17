@@ -17,7 +17,7 @@
 
     <button class="btn" @click="ShowAddCard()">Add Card</button>
     <div v-if="showAddCard" class="mt-5">
-      <AddCard></AddCard>
+      <AddCard  @add-card="addCard"></AddCard>
     </div>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       cards: sourceData.cards,
-      darkmode: sourceData.darkMode,
+      darkmode:sourceData.darkMode,
       showAddCard:false
     };
   },
