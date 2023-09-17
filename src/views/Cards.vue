@@ -15,9 +15,9 @@
       </div>
     </div>
 
-    <button class="btn" @click="ShowAddCard()">Add Card</button>
+    <button class="btn add-card-button" @click="ShowAddCard()">Add Card</button>
     <div v-if="showAddCard" class="mt-5">
-      <AddCard  @add-card="addCard"></AddCard>
+      <AddCard @add-card="addCard"></AddCard>
     </div>
   </div>
 </template>
@@ -27,66 +27,71 @@ import sourceData from '../data.json';
 import AddCard from '../components/AddCard.vue';
 import Header from '../components/Header.vue';
 export default {
-
   data() {
     return {
       cards: sourceData.cards,
-      darkmode:sourceData.darkMode,
-      showAddCard:false
+      darkmode: sourceData.darkMode,
+      showAddCard: false,
     };
   },
   components: {
     AddCard,
-    Header
+    Header,
   },
   methods: {
     addCard(newCard) {
-      this.cards= [...this.cards, newCard]
+      this.cards = [...this.cards, newCard];
       this.cards.push(newCard);
-      localStorage.setItem("cards", JSON.stringify(this.cards))
-      console.log(this.cards)
-
+      localStorage.setItem('cards', JSON.stringify(this.cards));
+      console.log(this.cards);
     },
-    ShowAddCard(){
-      this.showAddCard = !this.showAddCard
-    }
+    ShowAddCard() {
+      this.showAddCard = !this.showAddCard;
+    },
   },
 };
 </script>
-<style scoped>
-.darkmode, .darkmode > * {
-    background-color: #1f1f1f;
+<style lang="scss" scoped>
+.darkmode {
+  background-color: #1f1f1f;
+  color: #e2e2e2;
+  form {
+    display: flex;
+    width: 10rem;
+    margin: 0 5rem;
+    height: 3rem;
+    border-radius: 5px;
+  }
+  .add-card-button {
+    margin: auto;
+    margin-top: 3rem;
+    background-color: rgb(233, 106, 15) !important;
+    color: white;
+    width: 10rem;
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.7s;
+      box-shadow: -1px 0px 2px 2px rgba(16, 16, 16, 0.157);
+    }
+  }
+  .card_information , .card_information > * {
+    background: none;
     color: #e2e2e2;
-}
-.btn {
-  margin: auto;
-  margin-top: 3rem;
-  background-color: rgb(233, 106, 15)!important;
-  color: white;
-  width: 10rem;
-}
-.btn:hover {
-  transform: scale(1.1);
-  transition: 0.7s;
+    div {
+      .p-3{
+        background: none;
+        color: #e2e2e2;
 
-  box-shadow: -1px 0px 2px 2px rgba(16, 16, 16, 0.157);
+      }
+    }
+  }
 }
 
-form {
-  display: flex;
-  width: 10rem;
-  margin: 0 5rem;
-  height: 3rem;
-  border-radius: 5px;
-}
-form > * {
-  background: #e2e2e2;
-  border: none;
-}
-i {
-  background: none;
-  color: #000;
-}
+
+// i {
+//   background: none;
+//   color: #000;
+// }
 button {
   background: #e2e2e2;
   border: none;
@@ -110,12 +115,12 @@ button {
     rgb(255, 188, 62)
   ) !important;
 }
-.card_information > * {
-  background: none;
-}
-.card_information > div > * {
-  background: none;
-}
+// .card_information > * {
+//   background: none;
+// }
+// .card_information > div > * {
+//   background: none;
+// }
 .card_information-cvv,
 .card_information-exp {
   font-size: 1.5rem;
